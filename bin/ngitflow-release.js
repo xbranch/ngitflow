@@ -7,7 +7,14 @@ const Logger = require('../lib/logger');
 const NGitFlow = require('../lib/index');
 
 program
-    .arguments('<level>');
+    .arguments('<level>')
+    .action((level) => {
+        if (['patch', 'minor', 'major'].indexOf(level) >= 0) {
+            return NGitFlow.release(level, process.cwd());
+        } else {
+            return program.help();
+        }
+    });
 
 program.on('--help', () => {
     Logger.info('');
@@ -20,12 +27,3 @@ program.on('--help', () => {
 });
 
 program.parse(process.argv);
-
-(function () {
-    if (['patch', 'minor', 'major'].indexOf(program.level) >= 0) {
-        return NGitFlow.release(program.level, process.cwd());
-    } else {
-        return program.help();
-    }
-})();
-
