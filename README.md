@@ -1,7 +1,7 @@
 # Node Git Flow
 
 ## Requirements
-- Git Flow
+- [git-flow](https://github.com/petervanderdoes/gitflow-avh)
 
 ## Installation
 
