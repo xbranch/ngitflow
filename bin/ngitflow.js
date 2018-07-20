@@ -2,9 +2,13 @@
 'use strict';
 
 const program = require('commander');
+const packageJson = require('../package.json');
 
 const Logger = require('../lib/logger');
 const Package = require('../lib/package');
+
+program
+    .version(packageJson.version, '-v, --version');
 
 program
     .command('version')
@@ -18,5 +22,9 @@ program
             Package.getNextSnapshotVersion().then((version) => Logger.info(`Next snapshot version: ${version}`));
         }
     });
+
+program
+    .command('release', 'Release')
+    .alias('r');
 
 program.parse(process.argv);

@@ -19,14 +19,8 @@
     "url": "git+https://github.com/xbranch/ngitflow.git"
   },
   "main": "./lib/index.js",
-  "scripts": {
-    "ngitflow": "node ./bin/index version",
-    "start": "npm run ngitflow",
-    "ngitflow:release": "node ./bin/release"
-  },
   "bin": {
-    "ngitflow": "./bin/index.js",
-    "release": "./bin/release.js"
+    "ngitflow": "./bin/ngitflow.js"
   },
   "files": [
     "lib",
