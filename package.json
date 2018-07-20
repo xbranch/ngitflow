@@ -1,6 +1,6 @@
 {
   "name": "ngitflow",
-  "version": "1.0.8-snapshot.0",
+  "version": "1.0.8",
   "license": "MIT",
   "author": "User <info@xbranch.si>",
   "description": "Node/Npm Git Flow",
