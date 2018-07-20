@@ -8,29 +8,22 @@ const NGitFlow = require('../lib/index');
 
 program
     .arguments('<level>')
-    .action((level, cmd) => {
+    .action((level) => {
         if (['patch', 'minor', 'major'].indexOf(level) >= 0) {
-            NGitFlow.release(level, process.cwd());
+            return NGitFlow.release(level, process.cwd());
         } else {
-            program.help();
-            process.exit(1);
+            return program.help();
         }
     });
-
 
 program.on('--help', () => {
     Logger.info('');
     Logger.info('  Examples:');
     Logger.info('');
-    Logger.info('    $ release patch');
-    Logger.info('    $ release minor');
-    Logger.info('    $ release major');
+    Logger.info('    $ ngitflow release patch');
+    Logger.info('    $ ngitflow release minor');
+    Logger.info('    $ ngitflow release major');
     Logger.info('');
 });
 
 program.parse(process.argv);
-
-if (program.args.length === 0) {
-    program.help();
-    process.exit(1);
-}
