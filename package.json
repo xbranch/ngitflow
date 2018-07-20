@@ -1,6 +1,6 @@
 {
   "name": "ngitflow",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "license": "MIT",
   "author": "User <info@xbranch.si>",
   "description": "Node/Npm Git Flow",
@@ -25,8 +25,8 @@
     "ngitflow:release": "node ./bin/release"
   },
   "bin": {
-    "ngitflow": "./bin/index",
-    "release": "./bin/release"
+    "ngitflow": "./bin/index.js",
+    "release": "./bin/release.js"
   },
   "files": [
     "lib",
