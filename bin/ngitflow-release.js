@@ -22,7 +22,7 @@ program.on('--help', () => {
 program.parse(process.argv);
 
 (function () {
-    if (['patch', 'minor', 'major'].indexOf(level) >= 0) {
+    if (['patch', 'minor', 'major'].indexOf(program.level) >= 0) {
         return NGitFlow.release(program.level, process.cwd());
     } else {
         return program.help();
