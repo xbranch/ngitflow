@@ -1,0 +1,43 @@
+{
+  "name": "ngitflow",
+  "version": "1.0.0-alpha.0",
+  "license": "MIT",
+  "author": "User <info@xbranch.si>",
+  "description": "Node/Npm Git Flow",
+  "keywords": [
+    "npm",
+    "node",
+    "git",
+    "git-flow",
+    "release",
+    "version",
+    "bump",
+    "cli"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xbranch/ngitflow.git"
+  },
+  "main": "./lib/index.js",
+  "scripts": {
+    "ngitflow": "node ./bin/index version",
+    "start": "npm run ngitflow"
+  },
+  "bin": {
+    "ngitflow": "./bin/index",
+    "release": "./bin/release"
+  },
+  "files": [
+    "lib",
+    "bin"
+  ],
+  "dependencies": {
+    "chalk": "^2.4.1",
+    "commander": "^2.16.0",
+    "semver": "^5.5.0"
+  },
+  "engines": {
+    "node": ">=4.0.0",
+    "npm": ">=2.0.0"
+  }
+}
