@@ -1,9 +1,16 @@
 # Node Git Flow
 
+## Requirements
+- Git Flow
+
+## Installation
+
 ```
 npm install ngitflow --save-dev
 ```
 
-## Requirements
-- Git Flow
+## Usage
 
+```bash
+ngitflow release patch
+```
