@@ -10,7 +10,7 @@ program
     .arguments('<level>')
     .action((level, cmd) => {
         if (['patch', 'minor', 'major'].indexOf(level) >= 0) {
-            NGitFlow.release(level);
+            NGitFlow.release(level, process.cwd());
         } else {
             program.help();
             process.exit(1);
