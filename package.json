@@ -21,7 +21,8 @@
   "main": "./lib/index.js",
   "scripts": {
     "ngitflow": "node ./bin/index version",
-    "start": "npm run ngitflow"
+    "start": "npm run ngitflow",
+    "ngitflow:release": "node ./bin/release"
   },
   "bin": {
     "ngitflow": "./bin/index",
