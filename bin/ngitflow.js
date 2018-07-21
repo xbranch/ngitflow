@@ -15,7 +15,9 @@ program
     .command('versions')
     .option('-a, --all', 'output all versions')
     .action((cmd) => {
-        Package.getCurrentVersion().then((version) => Logger.info(version));
+        Package.getCurrentVersion()
+            .then((version) => Logger.info(version))
+            .catch(error => Logger.error(error));
         if (cmd.all) {
             Package.getNextPatchVersion().then((version) => Logger.info(`Next patch version: ${version}`));
             Package.getNextMinorVersion().then((version) => Logger.info(`Next minor version: ${version}`));
