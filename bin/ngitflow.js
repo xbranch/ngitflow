@@ -6,14 +6,15 @@ const packageJson = require('../package.json');
 
 const Logger = require('../lib/logger');
 const Package = require('../lib/package');
+const NGitFlow = require('../lib/index');
 
 program
     .version(packageJson.version, '-v, --version');
 
 program
-    .command('version')
+    .command('versions')
     .option('-a, --all', 'All versions')
-    .action(function (cmd) {
+    .action((cmd) => {
         Package.getCurrentVersion().then((version) => Logger.info(version));
         if (cmd.all) {
             Package.getNextPatchVersion().then((version) => Logger.info(`Next patch version: ${version}`));
@@ -24,7 +25,19 @@ program
     });
 
 program
-    .command('release', 'Release')
-    .alias('r');
+    .command('release')
+    .option('-l, --level [level]', 'which version to increase patch/minor/major', /^(patch|minor|major)$/i, 'patch')
+    .action((cmd) => {
+        NGitFlow.release(cmd.level, process.cwd());
+    })
+    .on('--help', () => {
+        Logger.info('');
+        Logger.info('  Examples:');
+        Logger.info('');
+        Logger.info('    $ ngitflow release');
+        Logger.info('    $ ngitflow release --level minor');
+        Logger.info('    $ ngitflow release -l major');
+        Logger.info('');
+    });
 
 program.parse(process.argv);
