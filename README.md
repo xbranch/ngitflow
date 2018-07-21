@@ -1,8 +1,10 @@
 # Node Git Flow
 
-[![NPM](https://nodei.co/npm/ngitflow.png?downloads=true&downloadRank=true)](https://nodei.co/npm/ngitflow/)
-
-[![NPM](https://nodei.co/npm-dl/ngitflow.png?&months=6&height=3)](https://nodei.co/npm/ngitflow/)
+[![NPM Version](https://badge.fury.io/js/ngitflow.svg)](https://www.npmjs.com/package/ngitflow)
+[![Build Status](https://travis-ci.org/xbranch/ngitflow.svg?branch=develop)](https://travis-ci.org/xbranch/ngitflow)
+[![Dependency Status](https://david-dm.org/xbranch/ngitflow.svg)](https://david-dm.org/xbranch/ngitflow)
+[![NPM Downloads](https://img.shields.io/npm/dm/ngitflow.svg?style=flat)](https://npmcharts.com/compare/ngitflow?minimal=true)
+[![Install Size](https://packagephobia.now.sh/badge?p=ngitflow)](https://packagephobia.now.sh/result?p=ngitflow)
 
 A command line node module to deal with git flow
 
@@ -25,6 +27,8 @@ $ ngitflow release -h
   Options:
 
     -l, --level [level]  which version to increase patch/minor/major (default: patch)
+    -s, --start-only     only start release
+    -f, --finish-only    only finish release
     -h, --help           output usage information
 
   Examples:
