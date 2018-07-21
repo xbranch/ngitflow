@@ -6,6 +6,10 @@ node_js:
   - '6'
   - '7'
   - '8'
+branches:
+  only:
+  - develop
+  - master 
 script:
   - npm test
 deploy:
