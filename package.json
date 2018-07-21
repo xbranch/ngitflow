@@ -19,6 +19,9 @@
     "url": "git+https://github.com/xbranch/ngitflow.git"
   },
   "main": "./lib/index.js",
+  "scripts": {
+    "test": "node ./bin/ngitflow.js -v"
+  },
   "bin": {
     "ngitflow": "./bin/ngitflow.js"
   },
