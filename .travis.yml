@@ -1,3 +1,11 @@
+language: node_js
+sudo: false
+node_js:
+  - '4'
+  - '5'
+  - '6'
+  - '7'
+  - '8'
 deploy:
   provider: npm
   email: user@xbranch.si
@@ -6,3 +14,4 @@ deploy:
   on:
     tags: true
     repo: xbranch/ngitflow
+  if: tag IS present
