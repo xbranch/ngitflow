@@ -13,7 +13,7 @@ program
 
 program
     .command('versions')
-    .option('-a, --all', 'All versions')
+    .option('-a, --all', 'output all versions')
     .action((cmd) => {
         Package.getCurrentVersion().then((version) => Logger.info(version));
         if (cmd.all) {
@@ -27,8 +27,17 @@ program
 program
     .command('release')
     .option('-l, --level [level]', 'which version to increase patch/minor/major', /^(patch|minor|major)$/i, 'patch')
+    .option('-s, --start-only', 'only start release')
+    .option('-f, --finish-only', 'only finish release')
     .action((cmd) => {
-        NGitFlow.release(cmd.level, process.cwd());
+        if (cmd.startOnly) {
+            NGitFlow.startRelease(cmd.level, process.cwd());
+        } else if (cmd.finishOnly) {
+            Package.getCurrentVersion()
+                .then((version) => NGitFlow.finishRelease(version, process.cwd()));
+        } else {
+            NGitFlow.release(cmd.level, process.cwd());
+        }
     })
     .on('--help', () => {
         Logger.info('');

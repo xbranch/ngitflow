@@ -1,9 +1,9 @@
 {
   "name": "ngitflow",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "license": "MIT",
   "author": "User <info@xbranch.si>",
-  "description": "Node/Npm Git Flow",
+  "description": "Node Git Flow",
   "keywords": [
     "npm",
     "node",
@@ -19,9 +19,6 @@
     "url": "git+https://github.com/xbranch/ngitflow.git"
   },
   "main": "./lib/index.js",
-  "scripts": {
-    "ngitflow": "node ./bin/ngitflow.js"
-  },
   "bin": {
     "ngitflow": "./bin/ngitflow.js"
   },
