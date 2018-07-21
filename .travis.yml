@@ -9,7 +9,7 @@ node_js:
 branches:
   only:
   - develop
-  - master 
+  - tags
 script:
   - npm test
 deploy:
