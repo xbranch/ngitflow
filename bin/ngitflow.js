@@ -13,7 +13,7 @@ program
 
 program
     .command('versions')
-    .option('-a, --all', 'All versions')
+    .option('-a, --all', 'output all versions')
     .action((cmd) => {
         Package.getCurrentVersion().then((version) => Logger.info(version));
         if (cmd.all) {
