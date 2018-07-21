@@ -7,9 +7,12 @@ node_js:
   - '7'
   - '8'
 branches:
-  only:
-  - develop
-  - tags
+  except:
+  - master
+  - /^release\/.*$/
+  - /^hotfix\/.*$/
+  - /^feature\/.*$/
+  - /^support\/.*$/
 script:
   - npm test
 deploy:
