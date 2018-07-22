@@ -19,6 +19,7 @@ $ npm install ngitflow --save-dev
 
 ## Usage
 
+### release
 ```bash
 $ ngitflow release -h
 
@@ -36,6 +37,24 @@ $ ngitflow release -h
     $ ngitflow release
     $ ngitflow release --level minor
     $ ngitflow release -l major
+```
+
+### feature
+```bash
+$ ngitflow feature -h
+  Usage: feature [options]
+
+  Options:
+
+    -n, --branch-name [branch-name]  git flow feature name
+    -s, --start-only                 only start release
+    -f, --finish-only                only finish release
+    -h, --help                       output usage information
+
+  Examples:
+
+    $ ngitflow feature -s -n firstfeature
+    $ ngitflow feature -f
 ```
 
 ### Recommended
