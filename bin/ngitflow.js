@@ -27,6 +27,29 @@ program
     });
 
 program
+    .command('feature')
+    .option('-n, --branch-name [branch-name]', 'git flow feature name')
+    .option('-s, --start-only', 'only start release')
+    .option('-f, --finish-only', 'only finish release')
+    .action((cmd) => {
+        if (cmd.startOnly && cmd.branchName) {
+            NGitFlow.startFeature(cmd.branchName, process.cwd());
+        } else if (cmd.finishOnly) {
+            NGitFlow.finishFeature(process.cwd());
+        } else {
+            Logger.error('Unknown command')
+        }
+    })
+    .on('--help', () => {
+        Logger.info('');
+        Logger.info('  Examples:');
+        Logger.info('');
+        Logger.info('    $ ngitflow feature -s -n firstfeature');
+        Logger.info('    $ ngitflow feature -f');
+        Logger.info('');
+    });
+
+program
     .command('release')
     .option('-l, --level [level]', 'which version to increase patch/minor/major', /^(patch|minor|major)$/i, 'patch')
     .option('-s, --start-only', 'only start release')
