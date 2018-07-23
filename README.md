@@ -17,6 +17,12 @@ A command line node module to deal with git flow
 $ npm install ngitflow --save-dev
 ```
 
+or 
+
+```bash
+$ npm install -g ngitflow
+```
+
 ## Usage
 
 ### release
@@ -89,7 +95,9 @@ Nejcs-MBP-2:ngitflow NejcS$ ngitflow feature -h
 You should install it as a dev dependency and then add the following to the `scripts` object in your `package.json`:
 
 ```json
-"release": "ngitflow release"
+"release:start": "ngitflow release start",
+"release:finish": "ngitflow release finish",
+"release": "ngitflow release start && ngitflow release finish"
 ```
 
 ## License
