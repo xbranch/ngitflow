@@ -23,38 +23,65 @@ $ npm install ngitflow --save-dev
 ```bash
 $ ngitflow release -h
 
-  Usage: release [options]
+  Usage: release [options] <action> [level]
 
   Options:
 
-    -l, --level [level]  which version to increase patch/minor/major (default: patch)
-    -s, --start-only     only start release
-    -f, --finish-only    only finish release
-    -h, --help           output usage information
+    -h, --help  output usage information
 
   Examples:
 
-    $ ngitflow release
-    $ ngitflow release --level minor
-    $ ngitflow release -l major
+    $ ngitflow release start
+    $ ngitflow release start minor
+    $ ngitflow release start major
+    $ ngitflow release finsih
+
+Nejcs-MBP-2:ngitflow NejcS$ ngitflow release -h
+
+  Usage: release [options] <action> [level]
+
+  Options:
+
+    -h, --help  output usage information
+
+  Examples:
+
+    $ ngitflow release start
+    $ ngitflow release start minor
+    $ ngitflow release start major
+    $ ngitflow release finsih
 ```
 
 ### feature
 ```bash
 $ ngitflow feature -h
-  Usage: feature [options]
+
+  Usage: release [options] <action> [level]
 
   Options:
 
-    -n, --branch-name [branch-name]  git flow feature name
-    -s, --start-only                 only start release
-    -f, --finish-only                only finish release
-    -h, --help                       output usage information
+    -h, --help  output usage information
 
   Examples:
 
-    $ ngitflow feature -s -n firstfeature
-    $ ngitflow feature -f
+    $ ngitflow release start
+    $ ngitflow release start minor
+    $ ngitflow release start major
+    $ ngitflow release finsih
+
+Nejcs-MBP-2:ngitflow NejcS$ ngitflow feature -h
+
+  Usage: feature [options] <action> [name]
+
+  Options:
+
+    -h, --help  output usage information
+
+  Examples:
+
+    $ ngitflow feature start
+    $ ngitflow feature start firstfeature
+    $ ngitflow feature finish
 ```
 
 ### Recommended
