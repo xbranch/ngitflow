@@ -17,25 +17,77 @@ A command line node module to deal with git flow
 $ npm install ngitflow --save-dev
 ```
 
+or 
+
+```bash
+$ npm install -g ngitflow
+```
+
 ## Usage
 
+### release
 ```bash
 $ ngitflow release -h
 
-  Usage: release [options]
+  Usage: release [options] <action> [level]
 
   Options:
 
-    -l, --level [level]  which version to increase patch/minor/major (default: patch)
-    -s, --start-only     only start release
-    -f, --finish-only    only finish release
-    -h, --help           output usage information
+    -h, --help  output usage information
 
   Examples:
 
-    $ ngitflow release
-    $ ngitflow release --level minor
-    $ ngitflow release -l major
+    $ ngitflow release start
+    $ ngitflow release start minor
+    $ ngitflow release start major
+    $ ngitflow release finsih
+
+Nejcs-MBP-2:ngitflow NejcS$ ngitflow release -h
+
+  Usage: release [options] <action> [level]
+
+  Options:
+
+    -h, --help  output usage information
+
+  Examples:
+
+    $ ngitflow release start
+    $ ngitflow release start minor
+    $ ngitflow release start major
+    $ ngitflow release finsih
+```
+
+### feature
+```bash
+$ ngitflow feature -h
+
+  Usage: release [options] <action> [level]
+
+  Options:
+
+    -h, --help  output usage information
+
+  Examples:
+
+    $ ngitflow release start
+    $ ngitflow release start minor
+    $ ngitflow release start major
+    $ ngitflow release finsih
+
+Nejcs-MBP-2:ngitflow NejcS$ ngitflow feature -h
+
+  Usage: feature [options] <action> [name]
+
+  Options:
+
+    -h, --help  output usage information
+
+  Examples:
+
+    $ ngitflow feature start
+    $ ngitflow feature start firstfeature
+    $ ngitflow feature finish
 ```
 
 ### Recommended
@@ -43,7 +95,9 @@ $ ngitflow release -h
 You should install it as a dev dependency and then add the following to the `scripts` object in your `package.json`:
 
 ```json
-"release": "ngitflow release"
+"release:start": "ngitflow release start",
+"release:finish": "ngitflow release finish",
+"release": "ngitflow release start && ngitflow release finish"
 ```
 
 ## License

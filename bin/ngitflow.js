@@ -27,27 +27,49 @@ program
     });
 
 program
-    .command('release')
-    .option('-l, --level [level]', 'which version to increase patch/minor/major', /^(patch|minor|major)$/i, 'patch')
-    .option('-s, --start-only', 'only start release')
-    .option('-f, --finish-only', 'only finish release')
-    .action((cmd) => {
-        if (cmd.startOnly) {
-            NGitFlow.startRelease(cmd.level, process.cwd());
-        } else if (cmd.finishOnly) {
-            Package.getCurrentVersion()
-                .then((version) => NGitFlow.finishRelease(version, process.cwd()));
+    .command('feature')
+    .arguments('<action> [name]')
+    .action((action, name) => {
+        if (action === 'start') {
+            name = name || Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, 7);
+            NGitFlow.startFeature(name, process.cwd());
+        } else if (action === 'finish') {
+            NGitFlow.finishFeature(process.cwd());
         } else {
-            NGitFlow.release(cmd.level, process.cwd());
+            Logger.error('Error: Invalid action! Valid actions are: start, finish');
         }
     })
     .on('--help', () => {
         Logger.info('');
         Logger.info('  Examples:');
         Logger.info('');
-        Logger.info('    $ ngitflow release');
-        Logger.info('    $ ngitflow release --level minor');
-        Logger.info('    $ ngitflow release -l major');
+        Logger.info('    $ ngitflow feature start');
+        Logger.info('    $ ngitflow feature start firstfeature');
+        Logger.info('    $ ngitflow feature finish');
+        Logger.info('');
+    });
+
+program
+    .command('release')
+    .arguments('<action> [level]')
+    .action((action, level) => {
+        if (action === 'start') {
+            level = level || 'patch'
+            NGitFlow.startRelease(level, process.cwd());
+        } else if (action === 'finish') {
+            NGitFlow.finishRelease(process.cwd());
+        } else {
+            Logger.error('Error: Invalid action! Valid actions are: start, finish');
+        }
+    })
+    .on('--help', () => {
+        Logger.info('');
+        Logger.info('  Examples:');
+        Logger.info('');
+        Logger.info('    $ ngitflow release start');
+        Logger.info('    $ ngitflow release start minor');
+        Logger.info('    $ ngitflow release start major');
+        Logger.info('    $ ngitflow release finsih');
         Logger.info('');
     });
 
