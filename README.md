@@ -41,21 +41,6 @@ $ ngitflow release -h
     $ ngitflow release start minor
     $ ngitflow release start major
     $ ngitflow release finsih
-
-Nejcs-MBP-2:ngitflow NejcS$ ngitflow release -h
-
-  Usage: release [options] <action> [level]
-
-  Options:
-
-    -h, --help  output usage information
-
-  Examples:
-
-    $ ngitflow release start
-    $ ngitflow release start minor
-    $ ngitflow release start major
-    $ ngitflow release finsih
 ```
 
 ### feature
@@ -74,20 +59,6 @@ $ ngitflow feature -h
     $ ngitflow release start minor
     $ ngitflow release start major
     $ ngitflow release finsih
-
-Nejcs-MBP-2:ngitflow NejcS$ ngitflow feature -h
-
-  Usage: feature [options] <action> [name]
-
-  Options:
-
-    -h, --help  output usage information
-
-  Examples:
-
-    $ ngitflow feature start
-    $ ngitflow feature start firstfeature
-    $ ngitflow feature finish
 ```
 
 ### Recommended
