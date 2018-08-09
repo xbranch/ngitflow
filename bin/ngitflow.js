@@ -27,6 +27,19 @@ program
     });
 
 program
+    .command('init')
+    .action(() => {
+        NGitFlow.init(process.cwd());
+    })
+    .on('--help', () => {
+        Logger.info('');
+        Logger.info('  Examples:');
+        Logger.info('');
+        Logger.info('    $ ngitflow init');
+        Logger.info('');
+    });
+
+program
     .command('feature')
     .arguments('<action> [name]')
     .action((action, name) => {
