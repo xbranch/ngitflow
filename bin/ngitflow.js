@@ -65,12 +65,13 @@ program
 program
     .command('release')
     .arguments('<action> [level]')
-    .action((action, level) => {
+    .option('-o, --offline', 'do not sync with remote')
+    .action((action, level, cmd) => {
         if (action === 'start') {
             level = level || 'patch'
-            NGitFlow.startRelease(level, process.cwd());
+            NGitFlow.startRelease(level, cmd.offline, process.cwd());
         } else if (action === 'finish') {
-            NGitFlow.finishRelease(process.cwd());
+            NGitFlow.finishRelease(cmd.offline, process.cwd());
         } else {
             Logger.error('Error: Invalid action! Valid actions are: start, finish');
         }
