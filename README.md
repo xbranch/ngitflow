@@ -25,6 +25,22 @@ $ npm install -g ngitflow
 
 ## Usage
 
+
+### init
+```bash
+$ ngitflow init -h
+
+  Usage: init [options]
+
+  Options:
+
+    -h, --help  output usage information
+
+  Examples:
+
+    $ ngitflow init
+```
+
 ### release
 ```bash
 $ ngitflow release -h
@@ -32,8 +48,9 @@ $ ngitflow release -h
   Usage: release [options] <action> [level]
 
   Options:
-
-    -h, --help  output usage information
+    
+    -o, --offline  do not sync with remote
+    -h, --help     output usage information
 
   Examples:
 
