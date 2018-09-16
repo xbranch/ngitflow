@@ -64,7 +64,7 @@ $ ngitflow release -h
 ```bash
 $ ngitflow feature -h
 
-  Usage: release [options] <action> [level]
+  Usage: feature [options] <action> [name]
 
   Options:
 
@@ -72,10 +72,9 @@ $ ngitflow feature -h
 
   Examples:
 
-    $ ngitflow release start
-    $ ngitflow release start minor
-    $ ngitflow release start major
-    $ ngitflow release finsih
+    $ ngitflow feature start
+    $ ngitflow feature start firstfeature
+    $ ngitflow feature finish
 ```
 
 ### Recommended
