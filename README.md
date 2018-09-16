@@ -9,7 +9,11 @@
 A command line node module to deal with git flow
 
 ## Requirements
-- [git-flow (AVH Edition)](https://github.com/petervanderdoes/gitflow-avh)
+[git-flow (AVH Edition)](https://github.com/petervanderdoes/gitflow-avh)
+
+### Links
+- [how to install](https://github.com/petervanderdoes/gitflow-avh/wiki/Installation)
+- [quick cheatsheet](http://danielkummer.github.io/git-flow-cheatsheet/)
 
 ## Installation
 
