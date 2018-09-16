@@ -88,6 +88,18 @@ You should install it as a dev dependency and then add the following to the `scr
 "release": "ngitflow release start && ngitflow release finish"
 ```
 
+## Possible .ngitflowrc configuration
+
+```json
+{
+    "versionFiles": [
+        {"file": "src/package.json", "regex": "(\"version\"\\s*:\\s*\")[\\s\\S]*?\",", "replacement": "$1$VERSION\","}
+    ]
+}
+```
+
+`versionFiles` is a list of any files that contains version string and you want to be updated when version in main `package.json` is changed. You simply define path to file, regex of matching string that you want to replace and replacement string that contains `$VERSION` key which is replaced with real version string before replacement in file is made. 
+
 ## License
 
 This project is released under the MIT license, which can be found in [`LICENSE`](LICENSE).

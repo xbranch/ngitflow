@@ -7,6 +7,7 @@ const packageJson = require('../package.json');
 const Logger = require('../lib/logger');
 const Package = require('../lib/package');
 const NGitFlow = require('../lib/index');
+const Configurations = require('../lib/rc');
 
 program
     .version(packageJson.version, '-v, --version');
@@ -23,6 +24,15 @@ program
             Package.getNextMinorVersion().then((version) => Logger.info(`Next minor version: ${version}`));
             Package.getNextMajorVersion().then((version) => Logger.info(`Next major version: ${version}`));
             Package.getNextSnapshotVersion().then((version) => Logger.info(`Next snapshot version: ${version}`));
+        }
+    });
+
+program
+    .command('config')
+    .option('-l, --list', 'list config')
+    .action((cmd) => {
+        if (cmd.list) {
+            Logger.info(JSON.stringify(Configurations.list(), null, '\t'));
         }
     });
 
@@ -68,7 +78,7 @@ program
     .option('-o, --offline', 'do not sync with remote')
     .action((action, level, cmd) => {
         if (action === 'start') {
-            level = level || 'patch'
+            level = level || 'patch';
             NGitFlow.startRelease(level, cmd.offline, process.cwd());
         } else if (action === 'finish') {
             NGitFlow.finishRelease(cmd.offline, process.cwd());
