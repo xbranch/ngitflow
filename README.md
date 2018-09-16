@@ -93,7 +93,7 @@ You should install it as a dev dependency and then add the following to the `scr
 ```json
 {
     "versionFiles": [
-        {"file": "src/package.json", "regex": "(\"version\"\\s*:\\s*\")[\\s\\S]*?\",", "replacement": "$1$VERSION\","}
+        {"file": "projects/core/package.json", "regex": "(\"version\"\\s*:\\s*\")[\\s\\S]*?\",", "replacement": "$1$VERSION\","}
     ]
 }
 ```

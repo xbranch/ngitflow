@@ -1,26 +1,26 @@
 language: node_js
 sudo: false
 node_js:
-  - '4'
-  - '5'
-  - '6'
-  - '7'
-  - '8'
+- '4'
+- '5'
+- '6'
+- '7'
+- '8'
 branches:
   except:
   - master
-  - /^release\/.*$/
-  - /^hotfix\/.*$/
-  - /^feature\/.*$/
-  - /^support\/.*$/
+  - "/^release\\/.*$/"
+  - "/^hotfix\\/.*$/"
+  - "/^feature\\/.*$/"
+  - "/^support\\/.*$/"
 script:
-  - npm test
+- npm test
 deploy:
   provider: npm
   email: user@xbranch.si
   skip_cleanup: true
   api_key:
-    secure: Cqf+IwM5muU3ABS41RqSYKSTLJLrfazFwmr92OcCPpfqIy6LmIPrTAPah07gjdbzgxg0ZUxEpxTXHbGwBy6kSbht4bteOqYTl6wkJhGCwAlqe+u63An6JAXofU9fr7lOZhb6MV3XL4Rha3p8IDjTTsHps9B27yviT2gD6zPpZX3ISvPRWZU30jZETb57JJ8/7cbl3S7E193lW9KwMRqMj1p5HVau0NTzwnz4Qy7W37FpqirtKFfw9AkhVy4r81q5S6RFvcLff/xddI33ocLPEB8+LWHwq/VmbsnODLlhCvB4/fGC8N5KHkEf3bEn5G5tkhOMWXjtLsE+W9yXmfgEnsFofXvd6y2v3Bf4HtMXmfW3YVtfYWLmNoJVJmShPOB3Hvz0PVh2I5b5D176zwdNMjrOPu/pfYgSI1+zw2Mk46YQVHWrgvamlNgcmOLkTAeLelizObp2wae/JYLSaODOEk92HZ6P3Q2XwZerCgsH66viCdAw2IED9FVqOuaKbjAH4cAZ1pIvwo3PvHiGBJfxUTzD8lvlLiPBh21mRsYFUoil6K8XaPZiQzmDBgKZEOGxq0fdTD2PqStVLAvQBA1Bj1woiyczYL0tf1vxTAK9JQajhKmeII6tDyPR45WhDLTNiT/ZLJ2fuExYmxqSS6pvxJPwiDokro4nbxz8dWmFpkk=
+    secure: s+8voGLvDa0xgTLiCxMsUu0tbhPZt1dSWjKvNIaXZgWwzjYzxsB5Zdfs9JQUrxWrfOGLVMaDwMh9JHtApH18TBRqks8ilq3pNw8QEZmbP6YfcVlHV4ac/+NPtxJ9HfAUgS4tFYZI0Q88RebMef6DBCZXKmtYxrN03wPmcwkov7VYlTLY6kJfknQWd8Shd86luZDdZYNtKDe9C+ehfWr6nmLtIjGtFGnNqMzW+k5Lp8Yklgcza743PqeLgnJ7qOWQRy1ZLitbS2q/2D+zZ2xm1MUhgR2p9k2BK7hdBLUw/g2Xv2bouHCi57dP8N6PeNTRLunIWXDdDBtv5FimiYKktRR6ptHitUTQUmp7y5qYDrkqBqVNCcW8QRuPJ5+CmGaH/HYHXbyuvlTVjDBNkZmVCEicPLrnW5/pwLQ6xYasd8oHEO8uEd8E8deheWI8o1Xh28ZPPT5OkazWvfe81X5oP32GA6jNeZGFiiT3MUhea4D4Btos2xfsp1oK6zVRRWnm4FokOThedmgw7B0n+OEESA7LX4jIZ3saLoMbKtAYWer174QVxWMSnpb9SUD39TeorJvqW6lhKtdomkXLtUrVkPQyNZNgK7tVYvZT+1zAWpu/iAeeAXOmpfy/DV8uY9/c9hIpy6Ar1aSyOguNtZK9+KvJx/C+xxveuxVfvwCrXh0=
   on:
     tags: true
     repo: xbranch/ngitflow
