@@ -27,6 +27,9 @@ $ npm install -g ngitflow
 
 
 ### init
+
+Initialize `git-flow` repository structure. Create `master` and `develop` branches. You should set your develop branch as a default branch in your git hosting service provider. 
+
 ```bash
 $ ngitflow init -h
 
@@ -42,6 +45,9 @@ $ ngitflow init -h
 ```
 
 ### release
+
+Create a new release branch and bump `package.json` version. Example `1.0.1-snapshot.0` becomes `1.0.1` in release branch. After release finish a new tag is created and merged back to develop and master. Version becomes `1.0.2-snapshot` on develop but on master stays `1.0.1`.
+
 ```bash
 $ ngitflow release -h
 
@@ -61,6 +67,9 @@ $ ngitflow release -h
 ```
 
 ### feature
+
+Create a new feature branch and bump `package.json` version. Example `1.0.1-snapshot.0` becomes `1.0.1-firstfeature.0`. After feature finish all changes are merged back to develop and version is changed back to snapshot.
+
 ```bash
 $ ngitflow feature -h
 
