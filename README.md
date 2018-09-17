@@ -9,7 +9,11 @@
 A command line node module to deal with git flow
 
 ## Requirements
-- [git-flow](https://github.com/petervanderdoes/gitflow-avh)
+[git-flow (AVH Edition)](https://github.com/petervanderdoes/gitflow-avh)
+
+### Links
+- [how to install](https://github.com/petervanderdoes/gitflow-avh/wiki/Installation)
+- [quick cheatsheet](http://danielkummer.github.io/git-flow-cheatsheet/)
 
 ## Installation
 
@@ -27,6 +31,9 @@ $ npm install -g ngitflow
 
 
 ### init
+
+Initialize `git-flow` repository structure. Create `master` and `develop` branches. You should set your develop branch as a default branch in your git hosting service provider. 
+
 ```bash
 $ ngitflow init -h
 
@@ -42,6 +49,9 @@ $ ngitflow init -h
 ```
 
 ### release
+
+Create a new release branch and bump `package.json` version. Example `1.0.1-snapshot.0` becomes `1.0.1` in release branch. After release finish a new tag is created and merged back to develop and master. Version becomes `1.0.2-snapshot` on develop but on master stays `1.0.1`.
+
 ```bash
 $ ngitflow release -h
 
@@ -61,10 +71,13 @@ $ ngitflow release -h
 ```
 
 ### feature
+
+Create a new feature branch and bump `package.json` version. Example `1.0.1-snapshot.0` becomes `1.0.1-firstfeature.0`. After feature finish all changes are merged back to develop and version is changed back to snapshot.
+
 ```bash
 $ ngitflow feature -h
 
-  Usage: release [options] <action> [level]
+  Usage: feature [options] <action> [name]
 
   Options:
 
@@ -72,10 +85,9 @@ $ ngitflow feature -h
 
   Examples:
 
-    $ ngitflow release start
-    $ ngitflow release start minor
-    $ ngitflow release start major
-    $ ngitflow release finsih
+    $ ngitflow feature start
+    $ ngitflow feature start firstfeature
+    $ ngitflow feature finish
 ```
 
 ### Recommended
