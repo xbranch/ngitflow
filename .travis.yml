@@ -25,4 +25,4 @@ deploy:
   on:
     tags: true
     repo: xbranch/ngitflow
-    node: '6'
+    node: '8'
