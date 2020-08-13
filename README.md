@@ -112,6 +112,10 @@ You should install it as a dev dependency and then add the following to the `scr
 
 `versionFiles` is a list of any files that contains version string and you want to be updated when version in main `package.json` is changed. You simply define path to file, regex of matching string that you want to replace and replacement string that contains `$VERSION` key which is replaced with real version string before replacement in file is made. 
 
+## Tree
+
+![Tree](tree.png)
+
 ## License
 
 This project is released under the MIT license, which can be found in [`LICENSE`](LICENSE).
