@@ -37,6 +37,28 @@ program
     });
 
 program
+    .command('bump')
+    .arguments('[levelOrVersion]')
+    .option('-pi, --pre-id [preId]', 'prerelease id value (only for prerelease)')
+    .action((levelOrVersion, cmd) => {
+        levelOrVersion = levelOrVersion || 'patch';
+        NGitFlow.bumpVersion(levelOrVersion, cmd.preId, cmd.offline, process.cwd());
+    })
+    .on('--help', () => {
+        Logger.info('');
+        Logger.info('  Examples:');
+        Logger.info('');
+        Logger.info('    $ ngitflow bump');
+        Logger.info('    $ ngitflow bump patch');
+        Logger.info('    $ ngitflow bump minor');
+        Logger.info('    $ ngitflow bump major');
+        Logger.info('    $ ngitflow bump 1.15.0');
+        Logger.info('    $ ngitflow bump 1.15.0-alpha.0');
+        Logger.info('    $ ngitflow bump prerelease --pre-id rc');
+        Logger.info('');
+    });
+
+program
     .command('init')
     .action(() => {
         NGitFlow.init(process.cwd());

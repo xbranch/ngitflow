@@ -99,6 +99,72 @@ $ ngitflow feature -h
     $ ngitflow feature finish
 ```
 
+### Utils
+
+#### bump
+
+Bump version and commit.
+
+```bash
+$ ngitflow bump -h
+
+  Usage: ngitflow bump [options] [levelOrVersion]
+
+  Options:
+
+    -pi, --pre-id [preId]  prerelease id value (only for prerelease)
+    -h, --help             display help for command
+
+  Examples:
+
+    $ ngitflow bump
+    $ ngitflow bump patch
+    $ ngitflow bump minor
+    $ ngitflow bump major
+    $ ngitflow bump 1.15.0
+    $ ngitflow bump 1.15.0-alpha.0
+    $ ngitflow bump prerelease --pre-id rc
+```
+
+#### versions
+
+See current version or print all next versions.
+
+```bash
+$ ngitflow versions -h
+
+  Usage: ngitflow versions [options]
+
+  Options:
+
+    -a, --all   output all versions
+    -h, --help  display help for command
+
+  Examples:
+
+    $ ngitflow versions
+    $ ngitflow versions --all
+```
+
+#### config
+
+See configurations from `.ngitflowrc` file.
+
+```bash
+$ ngitflow config -h
+
+  Usage: ngitflow config [options]
+
+  Options:
+
+    -l, --list  list config
+    -h, --help  display help for command
+
+  Examples:
+
+    $ ngitflow config --list
+```
+
 ### Recommended
 
 You should install it as a dev dependency and then add the following to the `scripts` object in your `package.json`:
