@@ -30,7 +30,7 @@
     "bin"
   ],
   "dependencies": {
-    "chalk": "^4.1.0",
+    "chalk": "^4.1.2",
     "commander": "^5.1.0",
     "rc": "^1.2.8",
     "replace": "^1.2.1",

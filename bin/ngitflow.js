@@ -23,7 +23,7 @@ program
             Package.getNextPatchVersion().then((version) => Logger.info(`Next patch version: ${version}`));
             Package.getNextMinorVersion().then((version) => Logger.info(`Next minor version: ${version}`));
             Package.getNextMajorVersion().then((version) => Logger.info(`Next major version: ${version}`));
-            Package.getNextSnapshotVersion().then((version) => Logger.info(`Next snapshot version: ${version}`));
+            Package.getNextPrereleaseVersion().then((version) => Logger.info(`Next prerelease version: ${version}`));
         }
     });
 
@@ -74,12 +74,13 @@ program
 
 program
     .command('release')
-    .arguments('<action> [level]')
+    .arguments('<action> [levelOrVersion]')
     .option('-o, --offline', 'do not sync with remote')
-    .action((action, level, cmd) => {
+    .option('-pi, --pre-id [preId]', 'prerelease id value (only for prerelease)')
+    .action((action, levelOrVersion, cmd) => {
         if (action === 'start') {
-            level = level || 'patch';
-            NGitFlow.startRelease(level, cmd.offline, process.cwd());
+            levelOrVersion = levelOrVersion || 'patch';
+            NGitFlow.startRelease(levelOrVersion, cmd.preId, cmd.offline, process.cwd());
         } else if (action === 'finish') {
             NGitFlow.finishRelease(cmd.offline, process.cwd());
         } else {
@@ -93,6 +94,9 @@ program
         Logger.info('    $ ngitflow release start');
         Logger.info('    $ ngitflow release start minor');
         Logger.info('    $ ngitflow release start major');
+        Logger.info('    $ ngitflow release start 1.15.0');
+        Logger.info('    $ ngitflow release start 1.15.0-alpha.0');
+        Logger.info('    $ ngitflow release start prerelease --pre-id rc');
         Logger.info('    $ ngitflow release finsih');
         Logger.info('');
     });
