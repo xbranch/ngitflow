@@ -9,9 +9,11 @@
 A command line node module to deal with git flow
 
 ## Requirements
+
 [git-flow (AVH Edition)](https://github.com/petervanderdoes/gitflow-avh)
 
 ### Links
+
 - [how to install](https://github.com/petervanderdoes/gitflow-avh/wiki/Installation)
 - [quick cheatsheet](http://danielkummer.github.io/git-flow-cheatsheet/)
 
@@ -21,7 +23,7 @@ A command line node module to deal with git flow
 $ npm install ngitflow --save-dev
 ```
 
-or 
+or
 
 ```bash
 $ npm install -g ngitflow
@@ -29,10 +31,10 @@ $ npm install -g ngitflow
 
 ## Usage
 
-
 ### init
 
-Initialize `git-flow` repository structure. Create `master` and `develop` branches. You should set your develop branch as a default branch in your git hosting service provider. 
+Initialize `git-flow` repository structure. Create `master` and `develop` branches. You should set your develop branch
+as a default branch in your git hosting service provider.
 
 ```bash
 $ ngitflow init -h
@@ -50,29 +52,36 @@ $ ngitflow init -h
 
 ### release
 
-Create a new release branch and bump `package.json` version. Example `1.0.1-snapshot.0` becomes `1.0.1` in release branch. After release finish a new tag is created and merged back to develop and master. Version becomes `1.0.2-snapshot` on develop but on master stays `1.0.1`.
+Create a new release branch and bump `package.json` version. Example `1.0.1-snapshot.0` becomes `1.0.1` in release
+branch. After release finish a new tag is created and merged back to develop and master. Version
+becomes `1.0.2-snapshot` on develop but on master stays `1.0.1`.
 
 ```bash
 $ ngitflow release -h
 
-  Usage: release [options] <action> [level]
+  Usage: release [options] <action> [levelOrVersion]
 
   Options:
     
-    -o, --offline  do not sync with remote
-    -h, --help     output usage information
+    -o, --offline          do not sync with remote
+    -pi, --pre-id [preId]  prerelease id value
+    -h, --help             display help for command
 
   Examples:
 
     $ ngitflow release start
     $ ngitflow release start minor
     $ ngitflow release start major
+    $ ngitflow release start 1.15.0
+    $ ngitflow release start 1.15.0-alpha.0
+    $ ngitflow release start prerelease --pre-id rc
     $ ngitflow release finsih
 ```
 
 ### feature
 
-Create a new feature branch and bump `package.json` version. Example `1.0.1-snapshot.0` becomes `1.0.1-firstfeature.0`. After feature finish all changes are merged back to develop and version is changed back to snapshot.
+Create a new feature branch and bump `package.json` version. Example `1.0.1-snapshot.0` becomes `1.0.1-firstfeature.0`.
+After feature finish all changes are merged back to develop and version is changed back to snapshot.
 
 ```bash
 $ ngitflow feature -h
@@ -90,6 +99,72 @@ $ ngitflow feature -h
     $ ngitflow feature finish
 ```
 
+### Utils
+
+#### bump
+
+Bump version and commit.
+
+```bash
+$ ngitflow bump -h
+
+  Usage: ngitflow bump [options] [levelOrVersion]
+
+  Options:
+
+    -pi, --pre-id [preId]  prerelease id value (only for prerelease)
+    -h, --help             display help for command
+
+  Examples:
+
+    $ ngitflow bump
+    $ ngitflow bump patch
+    $ ngitflow bump minor
+    $ ngitflow bump major
+    $ ngitflow bump 1.15.0
+    $ ngitflow bump 1.15.0-alpha.0
+    $ ngitflow bump prerelease --pre-id rc
+```
+
+#### versions
+
+See current version or print all next versions.
+
+```bash
+$ ngitflow versions -h
+
+  Usage: ngitflow versions [options]
+
+  Options:
+
+    -a, --all   output all versions
+    -h, --help  display help for command
+
+  Examples:
+
+    $ ngitflow versions
+    $ ngitflow versions --all
+```
+
+#### config
+
+See configurations from `.ngitflowrc` file.
+
+```bash
+$ ngitflow config -h
+
+  Usage: ngitflow config [options]
+
+  Options:
+
+    -l, --list  list config
+    -h, --help  display help for command
+
+  Examples:
+
+    $ ngitflow config --list
+```
+
 ### Recommended
 
 You should install it as a dev dependency and then add the following to the `scripts` object in your `package.json`:
@@ -105,12 +180,22 @@ You should install it as a dev dependency and then add the following to the `scr
 ```json
 {
     "versionFiles": [
-        {"file": "projects/core/package.json", "regex": "(\"version\"\\s*:\\s*\")[\\s\\S]*?\",", "replacement": "$1$VERSION\","}
-    ]
+        {
+            "file": "projects/core/package.json",
+            "regex": "(\"version\"\\s*:\\s*\")[\\s\\S]*?\",",
+            "replacement": "$1$VERSION\","
+        }
+    ],
+    "prereleaseId": "snapshot"
 }
 ```
 
-`versionFiles` is a list of any files that contains version string and you want to be updated when version in main `package.json` is changed. You simply define path to file, regex of matching string that you want to replace and replacement string that contains `$VERSION` key which is replaced with real version string before replacement in file is made. 
+- `versionFiles` is a list of any files that contains version string and you want to be updated when version in
+  main `package.json` is changed. You simply define path to file, regex of matching string that you want to replace and
+  replacement string that contains `$VERSION` key which is replaced with real version string before replacement in file
+  is made.
+- `prereleaseId` is prerelease id value. By default `snapshot` is used, but you can change to `beta`, `rc` or something
+  similar.
 
 ## Tree
 

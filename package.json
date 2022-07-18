@@ -1,6 +1,6 @@
 {
   "name": "ngitflow",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "license": "MIT",
   "author": "User <developer@xbranch.io>",
   "description": "Node Git Flow",
@@ -30,7 +30,7 @@
     "bin"
   ],
   "dependencies": {
-    "chalk": "^4.1.0",
+    "chalk": "^4.1.2",
     "commander": "^5.1.0",
     "rc": "^1.2.8",
     "replace": "^1.2.1",
